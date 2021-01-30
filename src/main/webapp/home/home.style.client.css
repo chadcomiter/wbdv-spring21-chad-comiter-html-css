@@ -1,0 +1,55 @@
+body{
+    background-color: aliceblue;
+    margin: 0 auto;
+}
+.nav-link{
+    color: rgb(240, 240, 240);
+}
+.nav-list{
+    display: flex;
+    flex-direction: row;
+}
+.navbar-header{
+    color: rgb(230, 230, 230);
+    position: relative;
+    top: 0.5rem;
+}
+.when-modified{
+    position: relative;
+    margin: 0.5rem;
+    margin-left: 5rem;
+    color: grey;
+}
+.card{
+    width: 100%;
+    margin: 0 auto;
+
+}
+.column-categories .card-body{
+    background-color: aliceblue;
+}
+.container{
+    background-color: aliceblue;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    width: 80%;
+}
+.card-body{
+    display: grid;
+    grid-template-columns: 40% 250px auto;
+}
+.course-col-1{
+    grid-row: 1;
+}
+.course-col-2{
+    grid-row: 1;
+    color: gray;
+}
+.course-col-3{
+    grid-row: 1;
+    color: gray;
+}
+.course-col-4{
+    grid-row: 1;
+    justify-self: end;
+}

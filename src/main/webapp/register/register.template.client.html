@@ -7,7 +7,7 @@
   
 <div class="container">
     <h1>Registration</h1>
-  <form method="POST" action="profile/profile.template.client.html">
+  <form action="POST">
     <div class="col-sm-10">
         <label for="exampleInputPassword1" class="form-label">Username:</label>
         <input type="text" class="form-control" id="exampleInputPassword1">
@@ -21,7 +21,7 @@
         <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
 
-    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <button type="submit" class="btn btn-primary" formaction="/profile/profile.template.client.html">Sign Up</button>
     <a href="/login/login.template.client.html"><button type="button" class="btn btn-primary">Login</button></a>
     <a href="/home/home.template.client.html"><button type="button" class="btn btn-primary">Cancel</button></a>
 

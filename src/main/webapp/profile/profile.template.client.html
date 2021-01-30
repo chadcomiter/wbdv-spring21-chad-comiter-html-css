@@ -15,7 +15,7 @@
   <form>
     <div class="col-sm-10">
         <label for="exampleInputPassword1" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" class="form-control" id="exampleInputPassword1" readonly value="username">
     </div>
     <div class="col-sm-10">
         <label for="exampleInputPassword1" class="form-label">Phone:</label>
@@ -31,13 +31,13 @@
         <input type="date" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="col-sm-4">
-    <select class="form-select" aria-label="Default select example" disabled>
+    <select class="form-select" aria-label="Default select example">
         <option selected value="FACULTY">Faculty</option>
         <option value="STUDENT">Student</option>
         <option value="ADMINISTRATOR">Administrator</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <button class="btn btn-primary">Logout</button>
+    <a href="/home/home.template.client.html"><button type="button" class="btn btn-primary">Logout</button></a>
   </form>
 </div>
