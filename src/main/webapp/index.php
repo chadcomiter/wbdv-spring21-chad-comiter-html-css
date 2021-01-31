@@ -1,0 +1,1 @@
+<?php header( 'Location: home/home.template.client.html' ) ;  ?>
