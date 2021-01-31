@@ -8,6 +8,7 @@ body{
 .nav-list{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .navbar-header{
     color: rgb(230, 230, 230);
@@ -52,4 +53,7 @@ body{
 .course-col-4{
     grid-row: 1;
     justify-self: end;
+}
+.nav-list button{
+    color: gray;
 }
