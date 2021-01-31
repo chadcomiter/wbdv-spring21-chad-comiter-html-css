@@ -42,3 +42,13 @@ body{
     height: 100%;
     width: 100%;
 }
+.nav-pills{
+    position: relative;
+    left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.nav-pills a{
+    padding-left: 5rem;
+}

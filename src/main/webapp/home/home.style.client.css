@@ -32,7 +32,8 @@ body{
     background-color: aliceblue;
     margin-top: 1rem;
     margin-bottom: 3rem;
-    width: 80%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 .card-body{
     display: grid;
@@ -40,6 +41,7 @@ body{
 }
 .course-col-1{
     grid-row: 1;
+    
 }
 .course-col-2{
     grid-row: 1;
@@ -55,4 +57,23 @@ body{
 }
 .nav-list button{
     color: gray;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.header-list{
+    position: relative;
+    left: 10%;
+    display: inline-grid;
+    grid-template-columns: 90% 40% 60%;
+    grid-template-rows: 100%;
+}
+.header-list p{
+    align-self: start;
+    height: 5px;
+}
+.navbar-brand{
+    position:relative;
+    left: 10px;
 }

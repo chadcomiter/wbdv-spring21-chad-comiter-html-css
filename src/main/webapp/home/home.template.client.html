@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link href="home.style.client.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-primary justify-content-between">
-    <ul class="nav-list">
-      <p class="navbar-header">Course Manager</p>
-      <a class="nav-link" href="/profile/profile.template.client.html">My Profile</a>
-      <a class="nav-link" href="/register/register.template.client.html">Registration</a>
-      <div class="form-container">
-        <form class="form-inline">
-          <div class="form-group">
-            <input class="input-group-lg" type="text" placeholder="Add Course" id="addCourse">
-            <i class="icon-plus-sign"></i>
-          </div>
+  <nav class="navbar navbar-expand-md navbar-light bg-primary">
+    <a href="#" class="navbar-brand">Course List</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar5">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar5">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/login/login.template.client.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile/profile.template.client.html">Profile</a>
+            </li>
+        </ul>
+        <form class="mx-2 my-auto d-inline w-100">
+            <div class="input-group">
+                <input type="text" class="form-control border border-right-0" placeholder="Course Name">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-light border border-left-0" type="button">
+                      <i class="icon-plus-sign"></i>
+                    </button>
+                </span>
+            </div>
         </form>
-      </div>
-      
-    </ul>
-  </nav>
+    </div>
+</nav>
 
-  <div class="column-categories">
+  <div class="column-categories d-none d-md-block">
     <div class="card">
       <div class="card-body">
-        This is some text within a card body.
+        <ul class="header-list">
+          <p>Course Title</p>
+          <p>Owner</p>
+          <p>Last Modified</p>
+        </ul>
       </div>
     </div>
   </div>
@@ -41,8 +59,8 @@
           <div class="card-body">
             <div class="course-col-1"><a href="/course-editor/course-editor.template.client.html">CS5002 Discrete
                 Structures</a></div>
-            <div class="course-col-2">me</div>
-            <div class="course-col-3">6:45 PM</div>
+            <div class="course-col-2 d-none d-md-block">me</div>
+            <div class="course-col-3 d-none d-md-block">6:45 PM</div>
             <div class="course-col-4"><i class="icon-remove"></i></div>
           </div>
         </div>
@@ -50,8 +68,8 @@
           <div class="card-body">
             <div class="course-col-1"><a href="/course-editor/course-editor.template.client.html">CS5004 Object Oriented
                 Design</a></div>
-            <div class="course-col-2">me</div>
-            <div class="course-col-3">6:45 PM</div>
+            <div class="course-col-2 d-none d-md-block">me</div>
+            <div class="course-col-3 d-none d-md-block">6:45 PM</div>
             <div class="course-col-4"><i class="icon-remove"></i></div>
           </div>
         </div>
@@ -59,8 +77,8 @@
           <div class="card-body">
             <div class="course-col-1"><a href="/course-editor/course-editor.template.client.html">CS5610 Web
                 Development</a></div>
-            <div class="course-col-2">me</div>
-            <div class="course-col-3">6:45 PM</div>
+            <div class="course-col-2 d-none d-md-block">me</div>
+            <div class="course-col-3 d-none d-md-block">6:45 PM</div>
             <div class="course-col-4"><i class="icon-remove"></i></div>
           </div>
         </div>
@@ -73,8 +91,8 @@
           <div class="card-body">
             <div class="course-col-1"><a href="/course-editor/course-editor.template.client.html">CS5200 Database and
                 Systems Management</a></div>
-            <div class="course-col-2">me</div>
-            <div class="course-col-3">6:45 PM</div>
+            <div class="course-col-2 d-none d-md-block">me</div>
+            <div class="course-col-3 d-none d-md-block">6:45 PM</div>
             <div class="course-col-4"><i class="icon-remove"></i></div>
           </div>
         </div>
@@ -82,8 +100,8 @@
           <div class="card-body">
             <div class="course-col-1"><a href="/course-editor/course-editor.template.client.html">CS5008 Data Structures
                 and Algorithms</a></div>
-            <div class="course-col-2">me</div>
-            <div class="course-col-3">6:45 PM</div>
+            <div class="course-col-2 d-none d-md-block">me</div>
+            <div class="course-col-3 d-none d-md-block">6:45 PM</div>
             <div class="course-col-4"><i class="icon-remove"></i></div>
           </div>
         </div>
@@ -96,8 +114,8 @@
           <div class="card-body">
             <div class="course-col-1"><a href="/course-editor/course-editor.template.client.html">CS5005 Object Oriented
                 Design Lab</a></div>
-            <div class="course-col-2">me</div>
-            <div class="course-col-3">6:45 PM</div>
+            <div class="course-col-2 d-none d-md-block">me</div>
+            <div class="course-col-3 d-none d-md-block">6:45 PM</div>
             <div class="course-col-4"><i class="icon-remove"></i></div>
           </div>
         </div>
