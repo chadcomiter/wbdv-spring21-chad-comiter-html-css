@@ -14,6 +14,11 @@ body{
     display: flex;
     flex-direction: row;
 }
+.card-head{
+    position: relative;
+    height: 40px;
+    left: 2%;
+}
 .when-modified{
     position: relative;
     margin: 0.5rem;
@@ -39,6 +44,7 @@ body{
     display: grid;
     grid-template-columns: 40% 250px auto;
 }
+
 .course-col-1{
     grid-row: 1;
     
