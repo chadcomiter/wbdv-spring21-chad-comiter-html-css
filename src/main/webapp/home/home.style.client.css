@@ -78,6 +78,7 @@ a {
 .header-list p{
     align-self: start;
     height: 5px;
+    font-size: 14px;
 }
 .navbar-brand{
     position:relative;

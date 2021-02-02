@@ -4,5 +4,23 @@ body {
 }
 .container {
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
 }
+.page-header{
+    position: relative;
+    margin-top: 1rem;
+}
+.col-lg-8{
+    margin-top: 1rem;
+}
+.col-lg-4{
+    margin-top: 1rem;
+}
+@media only screen and (max-width: 600px) {
+    .page-header{
+        position: relative;
+        left: 30%;
+    }
+  }

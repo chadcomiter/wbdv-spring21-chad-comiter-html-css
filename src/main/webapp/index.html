@@ -6,19 +6,19 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link href="/home/home.style.client.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-primary">
+  <nav class="navbar navbar-expand-md navbar-light bg-primary" style="width: 100%;">
     <a href="#" class="navbar-brand">Course List</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar5">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-burger">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse collapse" id="navbar5">
+    <div class="navbar-collapse collapse" id="navbar-burger">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="/login/login.template.client.html">Login</a>
@@ -27,7 +27,7 @@
                 <a class="nav-link" href="/profile/profile.template.client.html">Profile</a>
             </li>
         </ul>
-        <form class="mx-2 my-auto d-inline w-100">
+        <form class="mx-2 d-inline w-100">
             <div class="input-group">
                 <input type="text" class="form-control border border-right-0" placeholder="Add Course">
                 <span class="input-group-append">
@@ -41,11 +41,11 @@
 </nav>
 
   <div class="column-categories d-none d-md-block">
-    <div class="card">
+    <div class="card-head" id="card-header">
       <div class="card-body">
         <ul class="header-list">
           <p>Course Title</p>
-          <p>Owner</p>
+          <p style="position: relative; right: 11%">Owner</p>
           <p>Last Modified</p>
         </ul>
       </div>
@@ -124,3 +124,4 @@
   </div>
 
 </body>
+

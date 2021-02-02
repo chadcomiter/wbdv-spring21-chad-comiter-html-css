@@ -5,11 +5,11 @@ body{
 .container{
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 80%;
 }
 .container h1{
     position: relative;
-    left: 44%;
+    left: 42%;
     top: 10%;
 }
 
@@ -19,18 +19,17 @@ body{
     width: 100%;
 }
 .form-element{
-    margin: 1rem;
+    margin-top: 1rem;
     width: 80%;
 }
 .button-container{
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     flex-direction: column;
     width: 100%;
 }
 .btn{
     position: relative;
     width: 80%;
-    left: 8px;
-    margin: 0.5rem;
+    margin-top: 1rem;
 }
