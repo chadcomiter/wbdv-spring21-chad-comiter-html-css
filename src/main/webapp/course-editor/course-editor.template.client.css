@@ -1,10 +1,11 @@
 body{
     margin: 0 auto;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: #6A8EAE;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
-
 .editor-container{
     position: fixed;
     margin: 2rem;
