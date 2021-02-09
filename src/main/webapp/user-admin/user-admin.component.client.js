@@ -9,9 +9,11 @@
     function main() {
         rowTemplate = jQuery('.wbdv-template');
         createUserBtn = jQuery('.wbdv-create');
+        deleteUserBtn = jQuery('.wbdv-remove');
         tbody = jQuery('tbody');
 
         createUserBtn.click(createUser);
+        deleteUserBtn.click(deleteUser);
         
         userService.findAllUsers().then(renderUsers)
     }
