@@ -2,6 +2,8 @@ function UserService() {
 
     this.findAllUsers = findAllUsers
     this.createUser = createUser
+    this.deleteUser = deleteUser;
+    var self = this;
 
     // POST - Create
     function createUser(user) {
@@ -22,5 +24,13 @@ function UserService() {
             .then(function(response){
                 return response.json()
         })
+    }
+
+    //DELETE
+    function deleteUser(id){
+        return fetch('http://localhost:8080/users/${id}', {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
     }
 }
