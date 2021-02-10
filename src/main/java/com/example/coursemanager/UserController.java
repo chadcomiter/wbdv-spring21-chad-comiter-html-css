@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     static List<User> users = new ArrayList<User>(); 
     static {
-        users.add(new User(1, "lichK1ng", "forLordaeron", "Arthas", "Menethil", "FACULTY"));
-        users.add(new User(2, "4thaHorde", "loktarogar", "Thrall", "Warchief", "FACULTY"));
-        users.add(new User(3, "bansheeQueen", "fortheforsaken", "Sylvanas", "Windrunner", "FACULTY"));
+        users.add(new User("lichK1ng", "forLordaeron", "Arthas", "Menethil", "FACULTY"));
+        users.add(new User("4thaHorde", "loktarogar", "Thrall", "Warchief", "FACULTY"));
+        users.add(new User("bansheeQueen", "fortheforsaken", "Sylvanas", "Windrunner", "FACULTY"));
     };
     
     // CRUD
-    
     // POST - Creating 
     @PostMapping("/users")
     public List<User> createUser(@RequestBody User user) {
@@ -38,11 +37,11 @@ public class UserController {
 
     // DELETE - Deleting
     
-    @DeleteMapping
-    public List<User> deleteUser(@PathVariable("userId") int userId){
+    @DeleteMapping("/users")
+    public List<User> deleteUser(@PathVariable("id") int id){
         User temp = null;
         for(User u : users){
-            if(u.getId() == userId){
+            if(u.getId() == id){
                 temp = u;
             }
         }

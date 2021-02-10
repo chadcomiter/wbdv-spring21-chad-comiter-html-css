@@ -1,4 +1,5 @@
 package com.example.models;
+import java.util.Random;
 
 public class User {
     private int id;
@@ -8,6 +9,7 @@ public class User {
     private String lastname;
     private String role;
 
+    Random rand = new Random();
 
     public int getId() {
         return this.id;
@@ -60,8 +62,8 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, String firstname, String lastname, String role) {
-        this.id = id;
+    public User(String username, String password, String firstname, String lastname, String role) {
+        this.id = rand.nextInt(10000);
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -71,3 +73,6 @@ public class User {
     
     
 }
+
+//static var id that auto increments each time the user object is called
+//rand num, timestamp??
