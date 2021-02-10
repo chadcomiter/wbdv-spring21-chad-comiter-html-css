@@ -11,12 +11,9 @@
     function main() {
         $rowTemplate = jQuery('.wbdv-template');
         $createUserBtn = jQuery('.wbdv-create');
-        $deleteUserBtn = jQuery('.wbdv-remove');
         $updateUserBtn = jQuery('.wbdv-edit');
         $tbody = jQuery('tbody');
-
         $createUserBtn.click(createUser);
-        $deleteUserBtn.click(deleteUser);
         $updateUserBtn.click(updateUser);
         $userService.findAllUsers().then(renderUsers);
     }
@@ -35,8 +32,7 @@
         var role = $roleFld.val();
        
         var user = {
-            //change id
-            id: 999,
+            id: Math.floor(Math.random() * Math.floor(100000)),
             username: username,
             password: password,
             firstname: firstname,
@@ -59,18 +55,26 @@
             rowClone.find('.wbdv-first-name').html(user.firstname);
             rowClone.find('.wbdv-last-name').html(user.lastname);
             rowClone.find('.wbdv-role').html(user.role);
-            rowClone.find('.wbdv-actions').find('.wbdv-remove').click(deleteUser);
+            rowClone.find('.wbdv-actions').find('.wbdv-remove').attr('id', user.id);
             rowClone.find('.wbdv-actions').find('.wbdv-edit').click(updateUser);
             $tbody.append(rowClone);
         }
+        //
+        //bind wbdv-remove $().click(deleteUser)
+        $('.wbdv-remove').click(deleteUser);
+        
+    
+        //$deleteUserBtn.click(deleteUser);
     }
  
     function deleteUser(event){
         alert('Working Button')
-        currentTarget = $(event.currentTarget);
-        const tr = currentTarget.parent().parent().parent();
+        const tr = $(event.currentTarget).parent().parent().parent();
         tr.remove();
-
+        var id = $(event.currentTarget).attr('id');
+        $userService
+            .deleteUser(event)
+            .then(renderUsers)
     }
 
     function selectUser(){
