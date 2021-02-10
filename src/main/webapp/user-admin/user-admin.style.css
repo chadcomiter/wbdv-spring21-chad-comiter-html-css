@@ -1,0 +1,20 @@
+body {
+    margin: 0 auto;
+    background-color: aliceblue;
+}
+.container{
+    position: relative;
+    top: 25px;
+}
+.container h1 {
+    position: relative;
+    left: 10px;
+}
+.table{
+    position: relative;
+    top: 25px;
+}
+.admin-form{
+    position: relative;
+    top: 25px;
+}
