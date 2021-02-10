@@ -1,3 +1,7 @@
+//TODO
+//ADD PASSWORD FIELD TO USER HTML
+//CLEAR FORM AFTER SUBMIT
+
 (function () {
     var $userService = new UserService();
     var $usernameFld, $passwordFld;
@@ -11,7 +15,7 @@
     function main() {
         $rowTemplate = jQuery('.wbdv-template');
         $createUserBtn = jQuery('.wbdv-create');
-        $updateUserBtn = jQuery('.wbdv-edit');
+        $updateUserBtn = jQuery('.wbdv-update');
         $tbody = jQuery('tbody');
         $createUserBtn.click(createUser);
         $updateUserBtn.click(updateUser);
@@ -19,17 +23,11 @@
     }
     
     function createUser() {
-        $usernameFld = $('#usernameFld');
-        $passwordFld = $('#passwordFld');
-        $firstNameFld = $('#firstNameFld');
-        $lastNameFld = $('#lastNameFld');
-        $roleFld = $('#roleFld');
-
-        var username = $usernameFld.val();
-        var password = $passwordFld.val();
-        var firstname = $firstNameFld.val();
-        var lastname = $lastNameFld.val();
-        var role = $roleFld.val();
+        var username = $('#usernameFld').val();
+        var password = $('#passwordFld').val();
+        var firstname = $('#firstNameFld').val();
+        var lastname = $('#lastNameFld').val();
+        var role = $('#roleFld').val;
        
         var user = {
             username: username,
@@ -38,6 +36,8 @@
             lastname: lastname,
             role: role
         }
+
+        //clear form here
 
         $userService
             .createUser(user)
@@ -72,17 +72,17 @@
         jQuery(".wbdv-remove").click(deleteUser);
         jQuery(".wbdv-edit").click(selectUser);
         
+        
     
         //$deleteUserBtn.click(deleteUser);
     }
  
     function deleteUser(event){
-        console.log(event.target);
+
         var deleteBtn = jQuery(event.target);
         var currClass = deleteBtn.attr("class");
         var currIndex = deleteBtn.attr("id");
-        console.log(currClass);
-        console.log(currIndex);
+
         var currId = users[currIndex]._id
         $userService
             .deleteUser(currId)
@@ -92,12 +92,38 @@
             })
     }
 
-    function selectUser(){
+    var selectedUser = null;
+    function selectUser(event){
+        var selectBtn = jQuery(event.target);
+        var currId = selectBtn.attr("id");
+        selectedUser = users.find(user => user._id === currId)
+        $usernameFld = $('#usernameFld');
+        $usernameFld.val(selectedUser.username);
+        $passwordFld = $('#passwordFld');
+        $passwordFld.val(selectedUser.password);
+        $firstNameFld = $('#firstNameFld');
+        $firstNameFld.val(selectedUser.firstname);
+        $lastNameFld = $('#lastNameFld');
+        $lastNameFld.val(selectedUser.lastname);
+        $roleFld = $('#roleFld');
+        $roleFld.val(selectedUser.role);
+
 
     }
 
     function updateUser(){
-        alert('Working Button')
+        console.log(selectedUser)
+        selectedUser.username = $usernameFld.val()
+        selectedUser.password = $passwordFld.val()
+        selectedUser.firstname = $firstNameFld.val()
+        selectedUser.lastname = $lastNameFld.val()
+        selectUser.role = $roleFld.val()
+        $userService.updateUser(selectedUser._id, selectedUser)
+        .then(function (status) {
+            var index = users.findIndex(user => user._id === selectedUser._id)
+            users[index] = selectedUser
+            renderUsers(users)
+        })
     }
 
     function findUserById(id){

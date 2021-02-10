@@ -5,7 +5,7 @@ function UserService() {
     this.deleteUser = deleteUser;
     this.findUserById = findUserById;
     this.updateUser = updateUser;
-    this.url = 'https://wbdv-generic-server.herokuapp.com/api/0017546281/users';
+    this.url = 'https://wbdv-generic-server.herokuapp.com/api/0017546280/users';
     var self = this;
 
     // POST - Create
@@ -33,8 +33,14 @@ function UserService() {
 
     }
     //Update
-    function updateUser(){
-
+    function updateUser(userId, user){
+        return fetch(`${self.url}/${userId}`, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(response => response.json())
     }
     //DELETE
     function deleteUser(currId){
