@@ -5,7 +5,7 @@ function UserService() {
     this.deleteUser = deleteUser;
     this.findUserById = findUserById;
     this.updateUser = updateUser;
-    this.url = 'https://wbdv-generic-server.herokuapp.com/api/0017546280/users';
+    this.url = 'https://wbdv-generic-server.herokuapp.com/api/00175462801/users';
     var self = this;
 
     // POST - Create
@@ -30,7 +30,7 @@ function UserService() {
     }
 
     function findUserById(){
-
+        //not in rubric
     }
     //Update
     function updateUser(userId, user){

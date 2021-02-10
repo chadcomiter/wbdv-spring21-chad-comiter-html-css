@@ -16,10 +16,12 @@
         $rowTemplate = jQuery('.wbdv-template');
         $createUserBtn = jQuery('.wbdv-create');
         $updateUserBtn = jQuery('.wbdv-update');
+        $deleteUserBtn = jQuery(".wbdv-remove");
         $tbody = jQuery('tbody');
         $createUserBtn.click(createUser);
         $updateUserBtn.click(updateUser);
         $userService.findAllUsers().then(renderUsers);
+        $deleteUserBtn.click(deleteUser);
     }
     
     function createUser() {
@@ -27,7 +29,7 @@
         var password = $('#passwordFld').val();
         var firstname = $('#firstNameFld').val();
         var lastname = $('#lastNameFld').val();
-        var role = $('#roleFld').val;
+        var role = $('#roleFld').val();
        
         var user = {
             username: username,
@@ -37,6 +39,11 @@
             role: role
         }
 
+        $('#usernameFld').val("");
+        $('#passwordFld').val("");
+        $('#firstNameFld').val("");
+        $('#lastNameFld').val("");
+        $('#roleFld').val("");
         //clear form here
 
         $userService
