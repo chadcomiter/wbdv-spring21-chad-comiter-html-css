@@ -3,8 +3,8 @@
     var $usernameFld, $passwordFld;
     var $firstNameFld, $lastNameFld, $roleFld;
     var $updateUserBtn, $createUserBtn, $deleteUserBtn;
-    var $rowTemplate, $tbody;
-
+    var $rowTemplate, tbody;
+    var users = [];
 
     jQuery(main);
     
@@ -32,7 +32,6 @@
         var role = $roleFld.val();
        
         var user = {
-            id: Math.floor(Math.random() * Math.floor(100000)),
             username: username,
             password: password,
             firstname: firstname,
@@ -42,39 +41,55 @@
 
         $userService
             .createUser(user)
-            .then(renderUsers)
+            .then(function (actualUser){
+                users.push(actualUser)
+                renderUsers(users);
+            })
     }
 
     function renderUsers(users) {
         $tbody.empty()
-        for(var u in users) {
-            const user = users[u]
-            const rowClone = $rowTemplate.clone();
-            rowClone.removeClass('wbdv-hidden');
-            rowClone.find('.wbdv-username').html(user.username);
-            rowClone.find('.wbdv-first-name').html(user.firstname);
-            rowClone.find('.wbdv-last-name').html(user.lastname);
-            rowClone.find('.wbdv-role').html(user.role);
-            rowClone.find('.wbdv-actions').find('.wbdv-remove').attr('id', user.id);
-            rowClone.find('.wbdv-actions').find('.wbdv-edit').click(updateUser);
-            $tbody.append(rowClone);
+        for(let i = 0; i < users.length; i++) {
+            var user = users[i]
+            $tbody.append(`
+                <tr class="wbdv-template wbdv-user">
+                    <td class="wbdv-username">${user.username}</td>
+                    <td>&nbsp;</td>
+                    <td class="wbdv-first-name">${user.firstname}</td>
+                    <td class="wbdv-last-name">${user.lastname}</td>
+                    <td class="wbdv-role">${user.role}</td>
+                    <td class="wbdv-actions">
+                        <span class="float-right">
+                            <i id="${i}" class="fa-2x fa fa-times wbdv-remove"></i>
+                            <i id="${user._id}" class="fa-2x fa fa-pencil wbdv-edit"></i>
+                        </span>
+                    </td>
+                </tr>
+            `)
         }
         //
         //bind wbdv-remove $().click(deleteUser)
-        $('.wbdv-remove').click(deleteUser);
+        jQuery(".wbdv-remove").click(deleteUser);
+        jQuery(".wbdv-edit").click(selectUser);
         
     
         //$deleteUserBtn.click(deleteUser);
     }
  
     function deleteUser(event){
-        alert('Working Button')
-        const tr = $(event.currentTarget).parent().parent().parent();
-        tr.remove();
-        var id = $(event.currentTarget).attr('id');
+        console.log(event.target);
+        var deleteBtn = jQuery(event.target);
+        var currClass = deleteBtn.attr("class");
+        var currIndex = deleteBtn.attr("id");
+        console.log(currClass);
+        console.log(currIndex);
+        var currId = users[currIndex]._id
         $userService
-            .deleteUser(event)
-            .then(renderUsers)
+            .deleteUser(currId)
+            .then(function(status){
+                users.splice(currIndex, 1)
+                renderUsers(users);
+            })
     }
 
     function selectUser(){
